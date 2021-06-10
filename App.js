@@ -14,7 +14,7 @@ const App = () => {
 
     // Create a Google credential with the token
     const googleCredential = auth.GoogleAuthProvider.credential(idToken);
-
+    alert(JSON.stringify(googleCredential))
     // Sign-in the user with the credential
     return auth().signInWithCredential(googleCredential);
   }
@@ -23,13 +23,13 @@ const App = () => {
       <Button
         title="Google Sign-In"
        
-        onPress={() => onGoogleButtonPress().then(() => console.log('Signed in with Google!'))}
+        onPress={() => onGoogleButtonPress().then(() => console.log('Signed in with Google!')).catch(error=>console.log(error))}
       />
     );
   }
   useEffect(() => {
     GoogleSignin.configure({
-      webClientId: '810597468539-ffkl7sfn2spnevkq7isdndlpqn7kra5v.apps.googleusercontent.com',
+      webClientId: "810597468539-mfkk88gs1m040cm3dc4t4vsk841mopo8.apps.googleusercontent.com",
     });
 
   }, [])
